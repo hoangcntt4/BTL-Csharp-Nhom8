@@ -17,7 +17,7 @@ namespace BTL_Csharp_Nhom8
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DangNhap());
+            Application.Run(new QuanLyHoaDonXuat());
         }
     }
 }

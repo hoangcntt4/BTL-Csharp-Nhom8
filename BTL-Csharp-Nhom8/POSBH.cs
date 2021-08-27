@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace BTL_Csharp_Nhom8
 {
-     public partial class POSBH : Form
+    public partial class POSBH : Form
     {
         QLCuaHangTapHoaContext db = new QLCuaHangTapHoaContext();
         int indexOfDGV;
@@ -21,7 +21,7 @@ namespace BTL_Csharp_Nhom8
         //NHANVIEN_BLL nhanVien_BLL = new NHANVIEN_BLL();
         //PHIEUXUAT_BLL phieuXuat_BLL = new PHIEUXUAT_BLL();
         //DONGPXUAT_BLL dongPXuat_BLL = new DONGPXUAT_BLL();
-        string maNV_current;
+        string maNV_current = "NV001";
         string sdtKH;
         public POSBH()
         {
@@ -30,6 +30,7 @@ namespace BTL_Csharp_Nhom8
 
         private void POSBH_Load(object sender, EventArgs e)
         {
+            SetDataToCollection();
             //lbl_maNV.Text = maNV_current;
             //lbl_hoTen.Text = nhanVien_BLL.TimNhanVien("MANV", maNV_current).Rows[0]["TENNV"].ToString();
             //cbb_hanghoa.DataSource = sanPham_BLL.ChonSanPham();
@@ -57,23 +58,23 @@ namespace BTL_Csharp_Nhom8
 
         private void btn_xoadonghd_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    string tensp = cbb_hanghoa.Text;
-            //    DataGridViewRow dgvRow = dgv_hoaDon.Rows[indexOfDGV];
-            //    dgv_hoaDon.Rows.Remove(dgvRow);
-            //    int tongtien = 0;
-            //    for (int i = 0; i < dgv_hoaDon.Rows.Count; i++)
-            //    {
-            //        tongtien = tongtien + Convert.ToInt32(dgv_hoaDon.Rows[i].Cells[3].Value.ToString());
-            //    }
-            //    txt_tongTien.Text = tongtien + "";
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
+            try
+            {
+                string tensp = cbb_hanghoa.Text;
+                DataGridViewRow dgvRow = dgv_hoaDon.Rows[indexOfDGV];
+                dgv_hoaDon.Rows.Remove(dgvRow);
+                int tongtien = 0;
+                for (int i = 0; i < dgv_hoaDon.Rows.Count; i++)
+                {
+                    tongtien = tongtien + Convert.ToInt32(dgv_hoaDon.Rows[i].Cells[4].Value.ToString());
+                }
+                txt_tongTien.Text = tongtien + "";
+            }
+            catch (Exception ex)
+            {
+               
 
-            //}
+            }
         }
 
         private void btn_themvaohoadon_Click(object sender, EventArgs e)
@@ -130,13 +131,63 @@ namespace BTL_Csharp_Nhom8
             //        txt_tongTien.Text = tongtien + " VND";
             //    }
             //}
-                                    
+            if (string.IsNullOrWhiteSpace(cbb_hanghoa.Text))
+            {
+                MessageBox.Show("Vui lòng nhập sản phẩm");
+            }
+            else if (txt_slCon.Text == "NULL")
+            {
+                MessageBox.Show("Nhập sai thông tin vật phẩm");
+            }
+            else if (string.IsNullOrWhiteSpace(txt_soLuong.Text))
+            {
+                MessageBox.Show("Vui lòng nhập số lượng");
+            }
+            else if (string.IsNullOrWhiteSpace(txt_slCon.Text))
+            {
+                MessageBox.Show("Bạn chưa chọn sản phẩm nào");
+            }
+            else
+            if (Convert.ToInt32(txt_slCon.Text) < Convert.ToInt32(txt_soLuong.Text))
+            {
+                MessageBox.Show("Không còn đủ hàng trong kho");
+            }
+            else
+            {
+                int kiemtra = 0;
+                string tenSP = cbb_hanghoa.Text;
+                string donGiaXuat = txtDonGiaXuat.Text;
+                string dvt = txtDVT.Text;
+                int thanhTien = Convert.ToInt32(donGiaXuat) * Convert.ToInt32(txt_soLuong.Text);
+                for (int i = 0; i < dgv_hoaDon.RowCount; i++)
+                {
+                    if (tenSP == dgv_hoaDon.Rows[i].Cells[0].Value.ToString()) 
+                    {
+                        kiemtra = 1;
+                    }
+                        
+                }
+                if(kiemtra ==1)
+                {
+                    MessageBox.Show("Hàng này đã tồn tại");
+                }    
+                else
+                {
+                      this.dgv_hoaDon.Rows.Add(tenSP,dvt, donGiaXuat, txt_soLuong.Text, thanhTien.ToString());
+                }    
+            }
+            int tongtien = 0;
+            for (int i = 0; i < dgv_hoaDon.Rows.Count; i++)
+            {
+                tongtien = tongtien + Convert.ToInt32(dgv_hoaDon.Rows[i].Cells[4].Value.ToString());
+            }
+            txt_tongTien.Text = tongtien + "";
+
         }
 
         private void dgv_hoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            indexOfDGV = e.RowIndex;
-            MessageBox.Show(e.RowIndex.ToString());
+
         }
 
         private void txt_soLuong_KeyPress(object sender, KeyPressEventArgs e)
@@ -159,10 +210,88 @@ namespace BTL_Csharp_Nhom8
         {
             maNV_current = maNV;
         }
-
+        public string mahd;
         private void btn_thanhToan_Click(object sender, EventArgs e)
         {
+            if(dgv_hoaDon.RowCount==0)
+            {
+                MessageBox.Show("Chưa có sản phẩm nào để thanh toán");
+                
+            }
+            else
+            {
+                if (string.IsNullOrWhiteSpace(txt_SDTKH.Text) || string.IsNullOrWhiteSpace(txt_tenKH.Text))
+                {
+                    MessageBox.Show("Vui lòng nhập dữ liệu khách hàng!!!");
+                    
+                }
+                else
+                {
+                    if (txt_SDTKH.TextLength != 10)
+                    {
+                        MessageBox.Show("Số điện thoại phải có 10 số !!!");
+
+                          
+
+                    }
+                    else
+                    {
+                        if (kiem_tra_khach_hang_ton_tai == 0) // KHÁCH HÀNG CHƯA TỒN TẠI
+                        {
+                            var count = db.Khachhangs.Select(p => p);
+                            Khachhang kh = new Khachhang();
+                            kh.Makh = "KH" + count.Count() ;
+                            kh.Tenkh = txt_tenKH.Text;
+                            kh.Sdt = txt_SDTKH.Text;
+                            kh.Gioitnh = null;
+                            db.Khachhangs.Add(kh);
+                            db.SaveChanges();
+                        }
+                        // CHÈN VÀO HÓA ĐƠN 
+                        Pxuat dpx = new Pxuat();
+                        var dem = db.Pxuats.Select(p => p);
+
+                        var checkmakhachhang = db.Khachhangs.FirstOrDefault(p => p.Sdt == txt_SDTKH.Text);
+
+                        dpx.Mapx = "PX" + dem.Count();
+                        mahd = "PX" + dem.Count();
+                        dpx.Makh = checkmakhachhang.Makh;
+                        dpx.Ngayxuat = DateTime.Now;
+                        dpx.Manv = maNV_current;
+                        db.Pxuats.Add(dpx);
+                        db.SaveChanges();
+
+                        for (int i = 0; i < dgv_hoaDon.RowCount; i++)
+                        {
+                            string mapx = "PX" + (dem.Count()-1);
+                            var checkmasapham = db.Sanphams.FirstOrDefault(p => p.Tensp == dgv_hoaDon.Rows[i].Cells[0].Value.ToString());
+                            string maSP = checkmasapham.Masp;
+                            int soluongxuat = Convert.ToInt32(dgv_hoaDon.Rows[i].Cells[3].Value.ToString());
+                            int dongiaxuat = Convert.ToInt32(dgv_hoaDon.Rows[i].Cells[2].Value.ToString());
+                            string dvt = dgv_hoaDon.Rows[i].Cells[1].Value.ToString();
+
+
+                            Dongpxuat dongiapx = new Dongpxuat();
+                            
+                            dongiapx.Mapx = mapx;
+                            dongiapx.Masp = maSP;
+                            dongiapx.Soluongxuat = soluongxuat;
+                            dongiapx.Dongiaxuat = dongiaxuat;
+                            db.Dongpxuats.Add(dongiapx);
+                            db.SaveChanges();
+
+                        }
+                        InHoaDon F = new InHoaDon();
+                        F.mahd = mahd;
+                        F.ShowDialog();
+
+                    }
+                }    
+            }    
+           
             
+
+
             //if(string.IsNullOrWhiteSpace(txt_SDTKH.Text) || string.IsNullOrWhiteSpace(txt_tenKH.Text))
             //{
             //    MessageBox.Show("Vui lòng nhập dữ liệu khách hàng!!!");
@@ -243,14 +372,25 @@ namespace BTL_Csharp_Nhom8
 
             //    }
             //}
-            
+
         }
 
         private void btn_huyPhieu_Click(object sender, EventArgs e)
         {
             refreshForm();
         }
+        private void SetDataToCollection()
+        {
+            AutoCompleteStringCollection auto1 = new AutoCompleteStringCollection();
+            cbb_hanghoa.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cbb_hanghoa.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            foreach (var item in db.Sanphams.Select(x => x).ToList())
+            {
+                auto1.Add(item.Tensp);
 
+            }
+            cbb_hanghoa.AutoCompleteCustomSource = auto1;
+        }
         private void cbb_hanghoa_SelectedIndexChanged(object sender, EventArgs e)
         {
             //if(sanPham_BLL.LaySLTonKho(cbb_hanghoa.SelectedValue.ToString()).Rows.Count==0)
@@ -263,6 +403,7 @@ namespace BTL_Csharp_Nhom8
             //}    
         }
         public int lengthsdt;
+        int kiem_tra_khach_hang_ton_tai;
         private void txt_SDTKH_TextChanged(object sender, EventArgs e)
         {
             //lengthsdt = txt_SDTKH.Text.Length;
@@ -275,6 +416,24 @@ namespace BTL_Csharp_Nhom8
             //    txt_tenKH.Text = khachHang_BLL.TimKhachHang("MAKH", txt_SDTKH.Text).Rows[0][1].ToString();
             //    lengthsdt = txt_SDTKH.Text.Length;
             //} 
+
+                kiem_tra_khach_hang_ton_tai = 0;
+                QLCuaHangTapHoaContext db = new QLCuaHangTapHoaContext();
+                var check = db.Khachhangs.FirstOrDefault(p => p.Sdt == txt_SDTKH.Text);
+                {
+                    if(check != null)
+                    {
+                        txt_tenKH.Text = check.Tenkh.ToString();
+                        kiem_tra_khach_hang_ton_tai = 1;
+                        txt_tenKH.Enabled = false;
+                    }
+                if (check == null)
+                {
+                    
+                    txt_tenKH.Enabled = true;
+                }
+            }
+    
         }
 
         private void txt_SDTKH_KeyPress(object sender, KeyPressEventArgs e)
@@ -291,7 +450,7 @@ namespace BTL_Csharp_Nhom8
         private void refreshForm()
         {
             txt_soLuong.Text = "";
-            cbb_hanghoa.SelectedIndex = 0;
+            // cbb_hanghoa.SelectedIndex = 0;
             txt_SDTKH.Text = "";
             txt_tenKH.Text = "";
             dgv_hoaDon.Rows.Clear();
@@ -300,7 +459,36 @@ namespace BTL_Csharp_Nhom8
         }
         private void InHoaDon(string maPX)
         {
-           
+
+        }
+
+        private void cbb_hanghoa_TextChanged(object sender, EventArgs e)
+        {
+            QLCuaHangTapHoaContext db = new QLCuaHangTapHoaContext();
+            var check = db.Sanphams.FirstOrDefault(p => p.Tensp == cbb_hanghoa.Text);
+            if (check != null)
+            {
+                txt_slCon.Text = check.Sl.ToString();
+                txtDonGiaXuat.Text = check.DonGia.ToString();
+                txtDVT.Text = check.DVT.ToString();
+            }
+            else
+            {
+                txtDVT.Text = "NULL";
+                txtDonGiaXuat.Text = "NULL";
+                txt_slCon.Text = "NULL";
+            }
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
