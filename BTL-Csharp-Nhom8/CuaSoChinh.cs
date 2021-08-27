@@ -172,6 +172,11 @@ namespace BTL_Csharp_Nhom8
             baoCaoTheoNgay.Show();
         }
 
+        private void danhMụcToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
         public void TKMK(string username, string password)
         {
             this.maNV_current = username;
