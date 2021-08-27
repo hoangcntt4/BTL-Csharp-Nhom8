@@ -15,11 +15,13 @@ namespace BTL_Csharp_Nhom8.Models
 
         public string Masp { get; set; }
         public string Tensp { get; set; }
+        public int DonGia { get; set; }
+
         public string Madm { get; set; }
         public DateTime Hansd { get; set; }
         public string Mota { get; set; }
         public int Sl { get; set; }
-
+        public string DVT { get; set; }
         public virtual DanhmucSp MadmNavigation { get; set; }
         public virtual ICollection<Dongpnhap> Dongpnhaps { get; set; }
         public virtual ICollection<Dongpxuat> Dongpxuats { get; set; }

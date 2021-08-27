@@ -5869,19 +5869,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ADMIN\\.nuget\\packages\\": {}
+    "C:\\Users\\84866\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ADMIN\\source\\repos\\BTL-Csharp-Nhom8\\BTL-Csharp-Nhom8\\BTL-Csharp-Nhom8.csproj",
+      "projectUniqueName": "C:\\Users\\84866\\Desktop\\BTL Win\\BTL-Csharp-Nhom8\\BTL-Csharp-Nhom8\\BTL-Csharp-Nhom8.csproj",
       "projectName": "BTL-Csharp-Nhom8",
-      "projectPath": "C:\\Users\\ADMIN\\source\\repos\\BTL-Csharp-Nhom8\\BTL-Csharp-Nhom8\\BTL-Csharp-Nhom8.csproj",
-      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ADMIN\\source\\repos\\BTL-Csharp-Nhom8\\BTL-Csharp-Nhom8\\obj\\",
+      "projectPath": "C:\\Users\\84866\\Desktop\\BTL Win\\BTL-Csharp-Nhom8\\BTL-Csharp-Nhom8\\BTL-Csharp-Nhom8.csproj",
+      "packagesPath": "C:\\Users\\84866\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\84866\\Desktop\\BTL Win\\BTL-Csharp-Nhom8\\BTL-Csharp-Nhom8\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\84866\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5944,7 +5944,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
       }
     }
   },
