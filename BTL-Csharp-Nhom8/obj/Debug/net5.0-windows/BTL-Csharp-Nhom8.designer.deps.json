@@ -6,11 +6,41 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v5.0": {
+      "Antlr/3.5.0.2": {
+        "runtime": {
+          "lib/Antlr3.Runtime.dll": {
+            "assemblyVersion": "3.5.0.2",
+            "fileVersion": "3.5.0.2"
+          }
+        }
+      },
       "BouncyCastle/1.8.6.1": {
         "runtime": {
           "lib/BouncyCastle.Crypto.dll": {
             "assemblyVersion": "1.8.6.0",
             "fileVersion": "1.8.20052.1"
+          }
+        }
+      },
+      "ExpressionEvaluator/2.0.4": {
+        "dependencies": {
+          "Antlr": "3.5.0.2"
+        },
+        "runtime": {
+          "lib/net40/ExpressionEvaluator.dll": {
+            "assemblyVersion": "2.0.4.0",
+            "fileVersion": "2.0.4.0"
+          }
+        }
+      },
+      "GSF.Core/2.3.302": {
+        "dependencies": {
+          "ExpressionEvaluator": "2.0.4"
+        },
+        "runtime": {
+          "lib/net46/GSF.Core.dll": {
+            "assemblyVersion": "2.3.302.0",
+            "fileVersion": "2.3.302.0"
           }
         }
       },
@@ -363,6 +393,163 @@
           "lib/net20/Microsoft.Office.Interop.Excel.dll": {
             "assemblyVersion": "15.0.0.0",
             "fileVersion": "15.0.4795.1000"
+          }
+        }
+      },
+      "Microsoft.ReportingServices.ReportViewerControl.Winforms/150.1449.0": {
+        "dependencies": {
+          "Microsoft.SqlServer.Types": "14.0.314.76"
+        },
+        "runtime": {
+          "lib/net40/Microsoft.ReportViewer.Common.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.0.1449.0"
+          },
+          "lib/net40/Microsoft.ReportViewer.DataVisualization.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.0.1449.0"
+          },
+          "lib/net40/Microsoft.ReportViewer.Design.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.0.1449.0"
+          },
+          "lib/net40/Microsoft.ReportViewer.ProcessingObjectModel.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.0.1449.0"
+          },
+          "lib/net40/Microsoft.ReportViewer.WinForms.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.0.1449.0"
+          }
+        },
+        "resources": {
+          "lib/net40/de/Microsoft.ReportViewer.Common.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net40/de/Microsoft.ReportViewer.DataVisualization.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net40/de/Microsoft.ReportViewer.Design.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net40/de/Microsoft.ReportViewer.WinForms.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net40/es/Microsoft.ReportViewer.Common.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net40/es/Microsoft.ReportViewer.DataVisualization.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net40/es/Microsoft.ReportViewer.Design.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net40/es/Microsoft.ReportViewer.WinForms.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net40/fr/Microsoft.ReportViewer.Common.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net40/fr/Microsoft.ReportViewer.DataVisualization.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net40/fr/Microsoft.ReportViewer.Design.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net40/fr/Microsoft.ReportViewer.WinForms.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net40/it/Microsoft.ReportViewer.Common.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net40/it/Microsoft.ReportViewer.DataVisualization.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net40/it/Microsoft.ReportViewer.Design.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net40/it/Microsoft.ReportViewer.WinForms.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net40/ja/Microsoft.ReportViewer.Common.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net40/ja/Microsoft.ReportViewer.DataVisualization.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net40/ja/Microsoft.ReportViewer.Design.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net40/ja/Microsoft.ReportViewer.WinForms.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net40/ko/Microsoft.ReportViewer.Common.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net40/ko/Microsoft.ReportViewer.DataVisualization.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net40/ko/Microsoft.ReportViewer.Design.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net40/ko/Microsoft.ReportViewer.WinForms.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net40/pt/Microsoft.ReportViewer.Common.resources.dll": {
+            "locale": "pt"
+          },
+          "lib/net40/pt/Microsoft.ReportViewer.DataVisualization.resources.dll": {
+            "locale": "pt"
+          },
+          "lib/net40/pt/Microsoft.ReportViewer.Design.resources.dll": {
+            "locale": "pt"
+          },
+          "lib/net40/pt/Microsoft.ReportViewer.WinForms.resources.dll": {
+            "locale": "pt"
+          },
+          "lib/net40/ru/Microsoft.ReportViewer.Common.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net40/ru/Microsoft.ReportViewer.DataVisualization.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net40/ru/Microsoft.ReportViewer.Design.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net40/ru/Microsoft.ReportViewer.WinForms.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net40/zh-CHS/Microsoft.ReportViewer.Common.resources.dll": {
+            "locale": "zh-CHS"
+          },
+          "lib/net40/zh-CHS/Microsoft.ReportViewer.DataVisualization.resources.dll": {
+            "locale": "zh-CHS"
+          },
+          "lib/net40/zh-CHS/Microsoft.ReportViewer.Design.resources.dll": {
+            "locale": "zh-CHS"
+          },
+          "lib/net40/zh-CHS/Microsoft.ReportViewer.WinForms.resources.dll": {
+            "locale": "zh-CHS"
+          },
+          "lib/net40/zh-CHT/Microsoft.ReportViewer.Common.resources.dll": {
+            "locale": "zh-CHT"
+          },
+          "lib/net40/zh-CHT/Microsoft.ReportViewer.DataVisualization.resources.dll": {
+            "locale": "zh-CHT"
+          },
+          "lib/net40/zh-CHT/Microsoft.ReportViewer.Design.resources.dll": {
+            "locale": "zh-CHT"
+          },
+          "lib/net40/zh-CHT/Microsoft.ReportViewer.WinForms.resources.dll": {
+            "locale": "zh-CHT"
+          }
+        }
+      },
+      "Microsoft.SqlServer.Types/14.0.314.76": {
+        "runtime": {
+          "lib/net40/Microsoft.SqlServer.Types.dll": {
+            "assemblyVersion": "14.0.0.0",
+            "fileVersion": "2016.140.100.187"
           }
         }
       },
@@ -1395,12 +1582,33 @@
     }
   },
   "libraries": {
+    "Antlr/3.5.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CSfrVuDVMx3OrQhT84zed+tOdM1clljyRLWWlQM22fJsmG836RVDGQlE6tzysXh8X8p9UjkHbLr6OqEIVhtdEA==",
+      "path": "antlr/3.5.0.2",
+      "hashPath": "antlr.3.5.0.2.nupkg.sha512"
+    },
     "BouncyCastle/1.8.6.1": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-rkqpuKmJkdcfTMBkIj1b5nMdBAWKwAyh+I/BQYeqqSD2jkIlhwc9qBNKmSbnpmmm5c29qHZGLpvBSTNWvDLtQA==",
       "path": "bouncycastle/1.8.6.1",
       "hashPath": "bouncycastle.1.8.6.1.nupkg.sha512"
+    },
+    "ExpressionEvaluator/2.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-w8RqBrK5YkjgXmLE0M6PKcULee3/fVaz+aIt1lOEhyyb0PYIqGvbyovmZ9Mp5WCFV6EnUjxxkoEc4MS6wlyy5Q==",
+      "path": "expressionevaluator/2.0.4",
+      "hashPath": "expressionevaluator.2.0.4.nupkg.sha512"
+    },
+    "GSF.Core/2.3.302": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cBwfvgqWuWfxmOQHCWA3TtUYUBEjMnooDM9maCGdnHXJyXAnSOnphqVpKx8bA++S5qS7V1hoA6RBatVATARqBA==",
+      "path": "gsf.core/2.3.302",
+      "hashPath": "gsf.core.2.3.302.nupkg.sha512"
     },
     "Humanizer.Core/2.8.26": {
       "type": "package",
@@ -1611,6 +1819,20 @@
       "sha512": "sha512-DfceS96ustwfL8EOJNNRtpk6b0RylhjNpgeeemuvi9X4GYks2UTeAimjSrdFEfuqRo5ibZ4Sd0gJIeDr9gMa6Q==",
       "path": "microsoft.office.interop.excel/15.0.4795.1000",
       "hashPath": "microsoft.office.interop.excel.15.0.4795.1000.nupkg.sha512"
+    },
+    "Microsoft.ReportingServices.ReportViewerControl.Winforms/150.1449.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EVkZnYk+FvHiyQ+sg5BQKcp/9eU80ktf8REljVGqUk0HQOwfPcQhYq7w9eKRD1q+Mjm7Wqsy3/gSPXmpZDChPg==",
+      "path": "microsoft.reportingservices.reportviewercontrol.winforms/150.1449.0",
+      "hashPath": "microsoft.reportingservices.reportviewercontrol.winforms.150.1449.0.nupkg.sha512"
+    },
+    "Microsoft.SqlServer.Types/14.0.314.76": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gAekCmSfjtRBaiuuRIqJJV6cfEsEbYY5vI7Ssoc5sYI04JcyPrZ4C8RC3z7K9xfpr9ejQAQ1AtfvtgqEnjmwOw==",
+      "path": "microsoft.sqlserver.types/14.0.314.76",
+      "hashPath": "microsoft.sqlserver.types.14.0.314.76.nupkg.sha512"
     },
     "Microsoft.Win32.Registry/4.7.0": {
       "type": "package",

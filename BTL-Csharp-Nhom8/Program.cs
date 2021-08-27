@@ -17,7 +17,11 @@ namespace BTL_Csharp_Nhom8
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+<<<<<<< HEAD
             Application.Run(new QuanLyHoaDonXuat());
+=======
+            Application.Run(new frmPrint());
+>>>>>>> 6472a1f (dat)
         }
     }
 }

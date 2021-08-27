@@ -16,6 +16,9 @@
     <Compile Update="DoiMatKhau.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="frmPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="InHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
