@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace BTL_Csharp_Nhom8
 {
@@ -34,6 +35,18 @@ namespace BTL_Csharp_Nhom8
             return "SP" + indexID;
 
         }
+        private void SetDataToCollection()
+        {
+            AutoCompleteStringCollection auto1 = new AutoCompleteStringCollection();
+            txt_tuKhoaTK.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txt_tuKhoaTK.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            foreach (var item in db.Sanphams.Select(x => x).ToList())
+            {
+                auto1.Add(item.Tensp);
+
+            }
+           txt_tuKhoaTK.AutoCompleteCustomSource = auto1;
+        }
         private void QuanLyKhoHang_Load(object sender, EventArgs e)
         {
             //hiển thị danh sách các sản phẩm hiện đang có
@@ -42,12 +55,25 @@ namespace BTL_Csharp_Nhom8
                           {
                               prod.Masp,
                               prod.Tensp,
+                              dongia = string.Format(new CultureInfo("vi-VN"), "{0:#,##0}", prod.DonGia) + " vnđ",
                               loaihang = prod.MadmNavigation.Tendm,
                               prod.Mota,
-                              prod.Sl
+                              prod.Sl,
+                              prod.DVT
                           };
             dgv_sanPham.DataSource = product.ToList();
             //
+            dgv_sanPham.Columns[0].HeaderText = "Mã sản phẩm";
+            dgv_sanPham.Columns[1].HeaderText = "Tên sản phẩm";
+            dgv_sanPham.Columns[2].HeaderText = "Đơn giá";
+            dgv_sanPham.Columns[3].HeaderText = "Loại hàng";
+            dgv_sanPham.Columns[4].HeaderText = "Mô tả";
+            dgv_sanPham.Columns[5].HeaderText = "Số lượng";
+            dgv_sanPham.Columns[6].HeaderText = "Đơn vị tính";
+            //
+            dgv_sanPham.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgv_sanPham.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgv_sanPham.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             //Danh sách sản phẩm bán chạy
             var listProductMost = db.Dongpxuats.Join(db.Sanphams, px => px.Masp, sp => sp.Masp,
                 (px, sp) => new
@@ -67,14 +93,24 @@ namespace BTL_Csharp_Nhom8
                 }).OrderByDescending(px => px.slbanra);
             dgv_sanPhamBC.DataSource = listProductMost.ToList();
             //
-            //danh sách sản phẩm còn lại, lớn hơn 0
-            var tonKho = db.Sanphams.Where(sp => sp.Sl > 10).Select(sp => new
+            dgv_sanPhamBC.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgv_sanPhamBC.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+            //danh sách sản phẩm còn nhiều
+            var spcon = db.Sanphams.Where(sp => sp.Sl > 50).Select(sp => new
             {
                 sp.Masp,
                 sp.Tensp,
-                slton = sp.Sl
-            }).OrderByDescending(sp => sp.slton);
-            dgv_sanPhamTN.DataSource = tonKho.ToList();
+                sl = sp.Sl
+            }).OrderByDescending(sp => sp.sl);
+            dgv_sanPhamTN.DataSource = spcon.ToList();
+            dgv_sanPhamTN.Columns[0].HeaderText = "Mã sản phẩm";
+            dgv_sanPhamTN.Columns[1].HeaderText = "Tên sản phẩm";
+            dgv_sanPhamTN.Columns[2].HeaderText = "Số lượng";
+
+            //
+            dgv_sanPhamTN.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgv_sanPhamTN.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             //hiển thị comboBox loại hàng
             cbo_LoaiHang.DataSource = (db.DanhmucSps.Select(x => x)).ToList();
             cbo_LoaiHang.DisplayMember = "TENDM";
@@ -89,6 +125,11 @@ namespace BTL_Csharp_Nhom8
             txt_tenSP.Text = "";
             txt_maSP.Text = AutoIDCus();
             txt_maSP.Enabled = false;
+            txt_DonGia.Text = "";
+            txt_SL.Text = "";
+            txt_DVT.Text = "";
+
+            SetDataToCollection();
         }
 
 
@@ -113,9 +154,11 @@ namespace BTL_Csharp_Nhom8
                                          {
                                              c.Masp,
                                              c.Tensp,
+                                             c.DonGia,
                                              loaihang = c.MadmNavigation.Tendm,
                                              c.Mota,
-                                             c.Sl
+                                             c.Sl,
+                                             c.DVT
                                          };
                             dgv_sanPham.DataSource = result.ToList();
                         }
@@ -127,9 +170,11 @@ namespace BTL_Csharp_Nhom8
                                          {
                                              c.Masp,
                                              c.Tensp,
+                                             c.DonGia,
                                              loaihang = c.MadmNavigation.Tendm,
                                              c.Mota,
-                                             c.Sl
+                                             c.Sl,
+                                             c.DVT
                                          };
                             dgv_sanPham.DataSource = result.ToList();
                         }
@@ -153,9 +198,11 @@ namespace BTL_Csharp_Nhom8
                                      {
                                          c.Masp,
                                          c.Tensp,
+                                         c.DonGia,
                                          loaihang = c.MadmNavigation.Tendm,
                                          c.Mota,
-                                         c.Sl
+                                         c.Sl,
+                                         c.DVT
                                      };
                         dgv_sanPham.DataSource = result.ToList();
                     }
@@ -167,9 +214,11 @@ namespace BTL_Csharp_Nhom8
                                      {
                                          c.Masp,
                                          c.Tensp,
+                                         c.DonGia,
                                          loaihang = c.MadmNavigation.Tendm,
                                          c.Mota,
-                                         c.Sl
+                                         c.Sl,
+                                         c.DVT
                                      };
                         dgv_sanPham.DataSource = result.ToList();
                     }
@@ -191,15 +240,18 @@ namespace BTL_Csharp_Nhom8
             Sanpham spSua = db.Sanphams.SingleOrDefault(sp => sp.Masp == txt_maSP.Text);
             try
             {
-                DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn lưu nội dung vừa sửa?", "Thông báo", MessageBoxButtons.YesNo);
+                DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn lưu nội dung vừa sửa?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (dlr == DialogResult.Yes)
                 {
                     spSua.Tensp = txt_tenSP.Text;
+                    spSua.DonGia = Convert.ToInt32(txt_DonGia.Text);
                     spSua.Madm = cbo_LoaiHang.SelectedValue.ToString();
                     spSua.Mota = txt_moTa.Text;
+                    spSua.Sl = Convert.ToInt32(txt_SL.Text);
+                    spSua.DVT = txt_DVT.Text;
                     db.SaveChanges();
                     QuanLyKhoHang_Load(sender, e);
-                    MessageBox.Show("Thành công", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Thành công!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
                 else
@@ -219,8 +271,11 @@ namespace BTL_Csharp_Nhom8
             indexOfDGV = e.RowIndex;
             txt_maSP.Text = dgv_sanPham.Rows[indexOfDGV].Cells[0].Value.ToString();
             txt_tenSP.Text = dgv_sanPham.Rows[indexOfDGV].Cells[1].Value.ToString();
-            cbo_LoaiHang.Text = dgv_sanPham.Rows[indexOfDGV].Cells[2].Value.ToString();
-            txt_moTa.Text = dgv_sanPham.Rows[indexOfDGV].Cells[3].Value.ToString();
+            txt_DonGia.Text = dgv_sanPham.Rows[indexOfDGV].Cells[2].Value.ToString();
+            cbo_LoaiHang.Text = dgv_sanPham.Rows[indexOfDGV].Cells[3].Value.ToString();
+            txt_moTa.Text = dgv_sanPham.Rows[indexOfDGV].Cells[4].Value.ToString();
+            txt_SL.Text = dgv_sanPham.Rows[indexOfDGV].Cells[5].Value.ToString();
+            txt_DVT.Text = dgv_sanPham.Rows[indexOfDGV].Cells[6].Value.ToString();
         }
 
         private void cbb_kieuTK_SelectedIndexChanged(object sender, EventArgs e)
@@ -250,8 +305,11 @@ namespace BTL_Csharp_Nhom8
                     Sanpham spthem = new Sanpham();
                     spthem.Masp = AutoIDCus();
                     spthem.Tensp = txt_tenSP.Text;
+                    spthem.DonGia = Convert.ToInt32(txt_DonGia.Text);
                     spthem.Madm = cbo_LoaiHang.SelectedValue.ToString();
                     spthem.Mota = txt_moTa.Text;
+                    spthem.Sl = Convert.ToInt32(txt_SL.Text);
+                    spthem.DVT = txt_DVT.Text;
                     //kiểm tra tồn tại sp
                     if (!db.Sanphams.Contains(spthem))
                     {

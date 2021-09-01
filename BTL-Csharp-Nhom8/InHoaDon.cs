@@ -44,6 +44,12 @@ namespace BTL_Csharp_Nhom8
             txtTenKH.Text = tenkh;
             dtpNgayLap.Value = query1.Ngayxuat;
 
+            string manv = query1.Manv;
+
+            var query4 = db.Nhanviens.Where(p => p.Manv == manv).SingleOrDefault();// LẤY RA RATHOONG TIN NHÂN VIÊN
+
+            txtTenNV.Text = query4.Tennv;
+            txtSDT_NV.Text = query4.Sodt;
 
             List<XemChiTietHoaDon> list = new List<XemChiTietHoaDon>();
             foreach (var item in query)
@@ -104,7 +110,14 @@ namespace BTL_Csharp_Nhom8
                 iTextSharp.text.Font fontBold = new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.BOLD);
 
                 // TẠO CHI TIẾT NHẬP HÀNG BAN ĐẦU
-                Phrase phrase2 = new Phrase("Phiếu giao nhận hàng hóa", fontHearder);
+                Phrase phrase1 = new Phrase("CỬA HÀNG TẠP HÓA PHÚ SƠN", fontHearder);
+                PdfPCell pdfPCell1 = new PdfPCell(phrase1);
+                pdfPCell1.Border = iTextSharp.text.Rectangle.NO_BORDER;
+                pdfPCell1.Colspan = 3;
+                pdfPCell1.HorizontalAlignment = Element.ALIGN_CENTER;
+                table.AddCell(pdfPCell1);
+
+                Phrase phrase2 = new Phrase("Chuyên Bán Sỉ, Lẻ Rượu Bia,Bánh Kẹo, Thuốc Lá, Sữa Các Loại...", font);
                 PdfPCell pdfPCell2 = new PdfPCell(phrase2);
                 pdfPCell2.Border = iTextSharp.text.Rectangle.NO_BORDER;
                 pdfPCell2.Colspan = 3;
@@ -112,19 +125,33 @@ namespace BTL_Csharp_Nhom8
 
                 table.AddCell(pdfPCell2);
 
-                Phrase phrase3 = new Phrase("Chuyên sỉ lẻ bia rượu bánh kẹo thuốc lá", fontHearder);
+                Phrase phrase3 = new Phrase("D/C: QL 1A - P.Kỳ Liên - T/X Kỳ Anh - Hà Tĩnh", font);
                 PdfPCell pdfPCell3 = new PdfPCell(phrase3);
                 pdfPCell3.Border = iTextSharp.text.Rectangle.NO_BORDER;
                 pdfPCell3.Colspan = 3;
                 pdfPCell3.HorizontalAlignment = Element.ALIGN_CENTER;
                 table.AddCell(pdfPCell3);
 
-                Phrase phrase4 = new Phrase("Địa chỉ: Hà Tĩnh - Số điện thoại: 0111222333", font);
+                Phrase phrase4 = new Phrase("Đ/T: 0975.588.688 - 0911.412.389", font);
                 PdfPCell pdfPCell4 = new PdfPCell(phrase4);
                 pdfPCell4.Border = iTextSharp.text.Rectangle.NO_BORDER;
                 pdfPCell4.Colspan = 3;
                 pdfPCell4.HorizontalAlignment = Element.ALIGN_CENTER;
                 table.AddCell(pdfPCell4);
+
+                Phrase phrase91 = new Phrase("", font);
+                PdfPCell pdfPCell91 = new PdfPCell(phrase91);
+                pdfPCell91.Border = iTextSharp.text.Rectangle.NO_BORDER;
+                pdfPCell91.Colspan = 3;
+                pdfPCell91.HorizontalAlignment = Element.ALIGN_CENTER;
+                table.AddCell(pdfPCell91);   
+
+                Phrase phrase92 = new Phrase("PHIẾU GIAO NHẬN HÀNG HÓA", font);
+                PdfPCell pdfPCell92 = new PdfPCell(phrase92);
+                pdfPCell92.Border = iTextSharp.text.Rectangle.NO_BORDER;
+                pdfPCell92.Colspan = 3;
+                pdfPCell92.HorizontalAlignment = Element.ALIGN_CENTER;
+                table.AddCell(pdfPCell92);
 
 
                 PdfPTable table1 = new PdfPTable(3);
@@ -144,15 +171,23 @@ namespace BTL_Csharp_Nhom8
                 pdfPCell6.HorizontalAlignment = Element.ALIGN_LEFT;
                 table1.AddCell(pdfPCell6);
 
-                Phrase phrase5 = new Phrase("Mã KH:"+txtMaKH.Text, font);
+                Phrase phrase5 = new Phrase("   ", font);
                 PdfPCell pdfPCell5 = new PdfPCell(phrase5);
                 pdfPCell5.Border = iTextSharp.text.Rectangle.NO_BORDER;
                 pdfPCell5.Colspan = 3;
                 pdfPCell5.PaddingTop = 20;
                 pdfPCell5.HorizontalAlignment = Element.ALIGN_LEFT;
                 table1.AddCell(pdfPCell5);
+                Phrase phrase8 = new Phrase("Tên KH:" + txtTenKH.Text + "                                                                                                                         Tên nhân viên:" + txtTenNV.Text, font);
+                PdfPCell pdfPCell8 = new PdfPCell(phrase8);
+                pdfPCell8.Border = iTextSharp.text.Rectangle.NO_BORDER;
+                pdfPCell8.Colspan = 3;
+                pdfPCell8.HorizontalAlignment = Element.ALIGN_LEFT;
+                table1.AddCell(pdfPCell8);
 
-                Phrase phrase7 = new Phrase("SĐT :" + txtSDT.Text, font);
+
+
+                Phrase phrase7 = new Phrase("SĐT :" + txtSDT.Text + "                                                                                                                                SĐT nhân viên: "+txtSDT_NV.Text, font);
                 PdfPCell pdfPCell7 = new PdfPCell(phrase7);
                 pdfPCell7.Border = iTextSharp.text.Rectangle.NO_BORDER;
                 pdfPCell7.Colspan = 3;
@@ -160,12 +195,7 @@ namespace BTL_Csharp_Nhom8
                 pdfPCell7.HorizontalAlignment = Element.ALIGN_LEFT;
                 table1.AddCell(pdfPCell7);
 
-                Phrase phrase8 = new Phrase("Tên KH:" + txtTenKH.Text, font);
-                PdfPCell pdfPCell8 = new PdfPCell(phrase8);
-                pdfPCell8.Border = iTextSharp.text.Rectangle.NO_BORDER;
-                pdfPCell8.Colspan = 3;
-                pdfPCell8.HorizontalAlignment = Element.ALIGN_LEFT;
-                table1.AddCell(pdfPCell8);
+               
 
                 Phrase phrase81 = new Phrase("          ",font);
                 PdfPCell pdfPCell81 = new PdfPCell(phrase81);

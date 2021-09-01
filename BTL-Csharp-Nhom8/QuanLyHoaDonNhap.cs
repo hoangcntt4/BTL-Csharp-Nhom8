@@ -13,49 +13,53 @@ namespace BTL_Csharp_Nhom8
 {
     public partial class QuanLyHoaDonNhap : Form
     {
-        //PHIEUNHAP_BLL phieuNhap_BLL = new PHIEUNHAP_BLL();
-        //DONGPNHAP_BLL dongPNhap_BLL = new DONGPNHAP_BLL();
+
         QLCuaHangTapHoaContext db = new QLCuaHangTapHoaContext();
         int indexOfDGVPNhap;
 
         public QuanLyHoaDonNhap()
         {
             InitializeComponent();
+
         }
+
 
         private void QuanLyHoaDonNhap_Load(object sender, EventArgs e)
         {
-            //dgv_phieuNhap.DataSource = phieuNhap_BLL.ToanBoPhieuNhap();
-            //cbb_kieuTK.SelectedIndex = 0;
-            //lbl_chonNgay.Visible = false;
-            //dtp_ngayNhap.Visible = false;
+            var data = db.Pnhaps.Select(s => new { s.Mapn, s.ManccNavigation.Tenncc, s.ManvNavigation.Tennv, s.Ngaynhap });
+            dgv_phieuNhap.DataSource = data.ToList();
+            cbb_kieuTK.SelectedIndex = 0;
+            lbl_chonNgay.Visible = false;
+            dtp_ngayNhap.Visible = false;
         }
 
         private void dgv_phieuNhap_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            //try
-            //{
-            //    indexOfDGVPNhap = e.RowIndex;
-            //    string maPN_current = dgv_phieuNhap.Rows[indexOfDGVPNhap].Cells[0].Value.ToString();
-            //    txt_maPhieuNhap.Text = maPN_current;
-            //    dtp_ngayNhapCT.Text = (DateTime.Parse(dongPNhap_BLL.TimTheoKieu("NGAYNHAP", maPN_current).Rows[0]["NGAYNHAP"].ToString())).ToString();
-            //    txt_maNCC.Text = dongPNhap_BLL.TimTheoKieu("NHACC.MANCC", maPN_current).Rows[0]["MANCC"].ToString();
-            //    txt_tenNCC.Text = dongPNhap_BLL.TimTheoKieu("NHACC.TENNCC", maPN_current).Rows[0]["TENNCC"].ToString();
-            //    txt_maNV.Text = dongPNhap_BLL.TimTheoKieu("NHANVIEN.MANV", maPN_current).Rows[0]["MANV"].ToString();
-            //    txt_tenNV.Text = dongPNhap_BLL.TimTheoKieu("NHANVIEN.TENNV", maPN_current).Rows[0]["TENNV"].ToString();
-            //    dgv_chiTietPN.DataSource = dongPNhap_BLL.ToanBoSanPham(maPN_current);
-            //    int tongtien = 0;
-            //    for (int i = 0; i < dgv_chiTietPN.Rows.Count; i++)
-            //    {
-            //        tongtien += Convert.ToInt32(dgv_chiTietPN.Rows[i].Cells[4].Value.ToString());
-            //    }
-            //    lbl_tongTien.Text = tongtien + "VND";
-            //}
-            //catch (Exception ex)
-            //{
+            try
+            {
+                indexOfDGVPNhap = e.RowIndex;
+                string maPN_current = dgv_phieuNhap.Rows[indexOfDGVPNhap].Cells[0].Value.ToString();
+                var phieunhap = db.Pnhaps.Find(maPN_current);
 
+                txt_maPhieuNhap.Text = maPN_current;
+                dtp_ngayNhapCT.Value = phieunhap.Ngaynhap;
+                txt_maNCC.Text = phieunhap.Mancc.ToString();
+                txt_tenNCC.Text = db.Nhaccs.Where(s => s.Mancc.Equals(phieunhap.Mancc)).Select(s => s.Tenncc).FirstOrDefault().ToString();
+                txt_maNV.Text = phieunhap.Manv.ToString();
+                txt_tenNV.Text = db.Nhanviens.Where(s => s.Manv.Equals(phieunhap.Manv)).Select(s => s.Tennv).FirstOrDefault().ToString();
+                dgv_chiTietPN.DataSource = db.Dongpnhaps.Where(s => s.Mapn.Equals(maPN_current)).Select(s => new { s.Masp, s.MaspNavigation.Tensp, s.Soluongnhap, s.Dongianhap, Tổng = (s.Soluongnhap) * (s.Dongianhap) }).ToList();
+                int tongtien = 0;
+                for (int i = 0; i < dgv_chiTietPN.Rows.Count; i++)
+                {
+                    tongtien += Convert.ToInt32(dgv_chiTietPN.Rows[i].Cells[4].Value.ToString());
+                }
+                lbl_tongTien.Text = tongtien + "VND";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
 
-            //}
+            }
 
         }
 
@@ -67,49 +71,58 @@ namespace BTL_Csharp_Nhom8
         private void btn_tim_Click(object sender, EventArgs e)
         {
 
-            //if (cbb_kieuTK.SelectedItem.ToString().Equals("Ngày nhập"))
-            //{
-            //    dgv_phieuNhap.DataSource = phieuNhap_BLL.TimTheoKieu("NGAYNHAP", dtp_ngayNhap.Text);
-            //}
-            //else
-            //{
-            //    if (cbb_kieuTK.SelectedItem.ToString().Equals("Tất cả"))
-            //    {
-            //        try
-            //        {
-            //            dgv_phieuNhap.DataSource = phieuNhap_BLL.ToanBoPhieuNhap();
-            //        }
-            //        catch (Exception ex)
-            //        {
+            if (cbb_kieuTK.SelectedItem.ToString().Equals("Ngày nhập"))
+            {
+                dgv_phieuNhap.DataSource = db.Pnhaps.Where(s => s.Ngaynhap.Equals(dtp_ngayNhap.Value)).Select(s => new { s.Mapn, s.ManccNavigation.Tenncc, s.ManvNavigation.Tennv, s.Ngaynhap }).ToList();
+            }
+            else
+            {
+                if (cbb_kieuTK.SelectedItem.ToString().Equals("Tất cả"))
+                {
+                    try
+                    {
+                        dgv_phieuNhap.DataSource = db.Pnhaps.Select(s => s).ToList();
+                    }
+                    catch (Exception ex)
+                    {
 
-            //            MessageBox.Show(ex.Message);
-            //        }
-            //    }
-            //    else
-            //    {
-            //        if (string.IsNullOrWhiteSpace(txt_tuKhoaTK.Text))
-            //        {
-            //            MessageBox.Show("Nhập từ khóa tìm kiếm!");
-            //        }
-            //        else
-            //        {
-            //            try
-            //            {
-            //                if (cbb_kieuTK.SelectedItem.ToString().Equals("Mã nhân viên"))
-            //                    dgv_phieuNhap.DataSource = phieuNhap_BLL.TimTheoKieu("MANV", txt_tuKhoaTK.Text);
-            //                else if (cbb_kieuTK.SelectedItem.ToString().Equals("Mã phiếu nhập"))
-            //                    dgv_phieuNhap.DataSource = phieuNhap_BLL.TimTheoKieu("MAPN", txt_tuKhoaTK.Text);
-            //                else if (cbb_kieuTK.SelectedItem.ToString().Equals("Mã nhà cung cấp"))
-            //                    dgv_phieuNhap.DataSource = phieuNhap_BLL.TimTheoKieu("MANCC", txt_tuKhoaTK.Text);
-            //            }
-            //            catch (Exception)
-            //            {
-            //                MessageBox.Show("Không tìm được!");
-            //            }
-            //        }
-            //    }
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+                else
+                {
+                    if (string.IsNullOrWhiteSpace(txt_tuKhoaTK.Text))
+                    {
+                        MessageBox.Show("Nhập từ khóa tìm kiếm!");
+                    }
+                    else
+                    {
+                        try
+                        {
+                            if (cbb_kieuTK.SelectedItem.ToString().Equals("Tên nhân viên"))
+                            {
+                                var data = db.Pnhaps.Where(s => s.ManvNavigation.Tennv.Equals(txt_tuKhoaTK.Text)).Select(s => new { s.Mapn, s.ManccNavigation.Tenncc, s.ManvNavigation.Tennv, s.Ngaynhap }).ToList();
+                                dgv_phieuNhap.DataSource = data;
+                            }
+                            else if (cbb_kieuTK.SelectedItem.ToString().Equals("Mã phiếu nhập"))
+                            {
+                                var data = db.Pnhaps.Where(s => s.Mapn.Equals(txt_tuKhoaTK.Text)).Select(s => new { s.Mapn, s.ManccNavigation.Tenncc, s.ManvNavigation.Tennv, s.Ngaynhap }).ToList();
+                                dgv_phieuNhap.DataSource = data;
+                            }
+                            else if (cbb_kieuTK.SelectedItem.ToString().Equals("Tên nhà cung cấp"))
+                            {
+                                var data = db.Pnhaps.Where(s => s.ManccNavigation.Tenncc.Equals(txt_tuKhoaTK.Text)).Select(s => new { s.Mapn, s.ManccNavigation.Tenncc, s.ManvNavigation.Tennv, s.Ngaynhap }).ToList();
+                                dgv_phieuNhap.DataSource = data;
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Không tìm được!");
+                        }
+                    }
+                }
 
-            //}
+            }
         }
 
         private void cbb_kieuTK_SelectedIndexChanged(object sender, EventArgs e)
@@ -136,6 +149,36 @@ namespace BTL_Csharp_Nhom8
                     txt_tuKhoaTK.Visible = true;
                     lbl_chonNgay.Visible = false;
                     lbl_thongTinTK.Visible = true;
+                }
+            }
+        }
+
+        private void butXoaPhieu_Click(object sender, EventArgs e)
+        {
+            string maPN_current = dgv_phieuNhap.Rows[indexOfDGVPNhap].Cells[0].Value.ToString();
+            Pnhap newpn = db.Pnhaps.Find(maPN_current);
+            DialogResult kq = MessageBox.Show("Bạn có muốn Xóa phiếu nhập này không?", "Lưu ý", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (kq == DialogResult.Yes)
+            {
+                try
+                {
+
+                    var dongphieu = db.Dongpnhaps.Where(s => s.Mapn.Equals(newpn.Mapn)).ToList();
+                    foreach (var item in dongphieu)
+                    {
+                        Sanpham sp = db.Sanphams.Find(item.Masp);
+                        sp.Sl = sp.Sl - item.Soluongnhap;
+                        db.Dongpnhaps.Remove(item);
+                        db.SaveChanges();
+                    }
+                    db.Pnhaps.Remove(newpn);
+                    db.SaveChanges();
+                    MessageBox.Show("Thành công");
+                    QuanLyHoaDonNhap_Load(sender, e);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
                 }
             }
         }

@@ -14,46 +14,86 @@ namespace BTL_Csharp_Nhom8
     public partial class DoiMatKhau : Form
     {
         QLCuaHangTapHoaContext db = new QLCuaHangTapHoaContext();
+        string manv_current = DangNhap.MaNVDangNhap;
         public DoiMatKhau()
         {
             InitializeComponent();
         }
-        public string taikhoan { get; set; }
-        public string matkhau { get; set; }
+
+        private bool ValiData()
+        {
+            if (txt_MKCu.Text == "")
+            {
+                errorProvider1.SetError(txt_MKCu, "Mật khẩu cũ không được để trống!");
+                txt_MKCu.Focus();
+                return false;
+            }
+            if (txt_MKMoi.Text == "")
+            {
+                errorProvider1.SetError(txt_MKMoi, "Mật khẩu mới không được để trống!");
+                txt_MKMoi.Focus();
+                return false;
+            }
+            if (txt_XacNhanMK.Text == "")
+            {
+                errorProvider1.SetError(txt_XacNhanMK, "Mật khẩu xác nhận không được để trống!");
+                txt_XacNhanMK.Focus();
+                return false;
+            }
+            return true;
+        }
 
         private void btn_ok_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txt_MKCu.Text) || string.IsNullOrWhiteSpace(txt_MKMoi.Text) || string.IsNullOrWhiteSpace(txt_XacNhanMK.Text))
+            if (ValiData())
             {
-                MessageBox.Show("Không được để trống dữ liệu");
-            }
-            else
-            {
-                if (matkhau == txt_MKCu.Text && txt_MKMoi.Text == txt_XacNhanMK.Text)
+                var nv = db.Nhanviens.Find(manv_current);
+                if (nv.Password == txt_MKCu.Text)
                 {
-                    MessageBox.Show("Đổi thành công");
-                   // nhanVien_BLL.UpdateMK(taikhoan, txt_MKMoi.Text);
-                    this.Close();
+                    if (txt_MKMoi.Text == txt_XacNhanMK.Text)
+                    {
+                        nv.Password = txt_MKMoi.Text;
+                        db.SaveChanges();
+                        MessageBox.Show("Đổi thành công");
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Mật khẩu mới và xác nhận chưa giống nhau, nhập lại!");
+                        txt_MKMoi.Clear();
+                        txt_XacNhanMK.Clear();
+                        txt_MKMoi.Focus();
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Đổi mật khẩu thất bại");
-                    txt_XacNhanMK.Clear();
-                    txt_MKMoi.Clear();
+                    MessageBox.Show("Nhập sai mật khẩu cũ, Nhập lại");
                     txt_MKCu.Clear();
+                    txt_MKCu.Focus();
                 }
             }
 
         }
-        public void funData(string username, string password)
-        {
-            taikhoan = username;
-            matkhau = password;
-        }
+
 
         private void DoiMatKhau_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void txt_MKCu_Validated(object sender, EventArgs e)
+        {
+            errorProvider1.SetError(txt_MKCu, "");
+        }
+
+        private void txt_MKMoi_Validated(object sender, EventArgs e)
+        {
+            errorProvider1.SetError(txt_MKMoi, "");
+        }
+
+        private void txt_XacNhanMK_Validated(object sender, EventArgs e)
+        {
+            errorProvider1.SetError(txt_XacNhanMK, "");
         }
     }
 }

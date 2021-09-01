@@ -21,7 +21,7 @@ namespace BTL_Csharp_Nhom8
         QuanLyHoaDonXuat quanLyHoaDonXuat = new QuanLyHoaDonXuat();
         DoiMatKhau doiMatKhau = new DoiMatKhau();
         QuanLyNhaCC quanLyNhaCC = new QuanLyNhaCC();
-        QuanLyKhachHang quanLyKhachHang = new QuanLyKhachHang();
+        QuanLyDanhMuc quanLyDanhMuc = new QuanLyDanhMuc();
         BaoCao baoCaoTheoNgay = new BaoCao();
         string maNV_current, matkhau;
 
@@ -40,14 +40,16 @@ namespace BTL_Csharp_Nhom8
 
         private void tạoMớiĐơnNhậpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.pnl_Container.Controls.Clear();
-            themHoaDonNhap.FormBorderStyle = FormBorderStyle.None;
-            themHoaDonNhap.TopLevel = false;
-            themHoaDonNhap.TopMost = true;
-            //frm_POS.AutoScroll = true;
-            themHoaDonNhap.Dock = DockStyle.Fill;
-            this.pnl_Container.Controls.Add(themHoaDonNhap);
-            themHoaDonNhap.Show();
+
+            MessageBox.Show("Bạn phải là ADMIN mới được truy cập mục này.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //this.pnl_Container.Controls.Clear();
+            //themHoaDonNhap.FormBorderStyle = FormBorderStyle.None;
+            //themHoaDonNhap.TopLevel = false;
+            //themHoaDonNhap.TopMost = true;
+            ////frm_POS.AutoScroll = true;
+            //themHoaDonNhap.Dock = DockStyle.Fill;
+            //this.pnl_Container.Controls.Add(themHoaDonNhap);
+            //themHoaDonNhap.Show();
         }
 
         private void quảnLýĐơnNhậpToolStripMenuItem_Click(object sender, EventArgs e)
@@ -126,13 +128,13 @@ namespace BTL_Csharp_Nhom8
         private void khachHangToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.pnl_Container.Controls.Clear();
-            quanLyKhachHang.FormBorderStyle = FormBorderStyle.None;
-            quanLyKhachHang.TopLevel = false;
-            quanLyKhachHang.TopMost = true;
+            quanLyDanhMuc.FormBorderStyle = FormBorderStyle.None;
+            quanLyDanhMuc.TopLevel = false;
+            quanLyDanhMuc.TopMost = true;
             //frm_POS.AutoScroll = true;
-            quanLyKhachHang.Dock = DockStyle.Fill;
-            this.pnl_Container.Controls.Add(quanLyKhachHang);
-            quanLyKhachHang.Show();
+            quanLyDanhMuc.Dock = DockStyle.Fill;
+            this.pnl_Container.Controls.Add(quanLyDanhMuc);
+            quanLyDanhMuc.Show();
         }
 
         private void nCCToolStripMenuItem_Click(object sender, EventArgs e)

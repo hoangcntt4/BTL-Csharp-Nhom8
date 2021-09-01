@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="SanPham" msprop:Generator_TableClassName="SanPhamDataTable" msprop:Generator_TableVarName="tableSanPham" msprop:Generator_TablePropName="SanPham" msprop:Generator_RowDeletingName="SanPhamRowDeleting" msprop:Generator_RowChangingName="SanPhamRowChanging" msprop:Generator_RowEvHandlerName="SanPhamRowChangeEventHandler" msprop:Generator_RowDeletedName="SanPhamRowDeleted" msprop:Generator_UserTableName="SanPham" msprop:Generator_RowChangedName="SanPhamRowChanged" msprop:Generator_RowEvArgName="SanPhamRowChangeEvent" msprop:Generator_RowClassName="SanPhamRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MASP" msprop:Generator_ColumnVarNameInTable="columnMASP" msprop:Generator_ColumnPropNameInRow="MASP" msprop:Generator_ColumnPropNameInTable="MASPColumn" msprop:Generator_UserColumnName="MASP" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TENSP" msprop:Generator_ColumnVarNameInTable="columnTENSP" msprop:Generator_ColumnPropNameInRow="TENSP" msprop:Generator_ColumnPropNameInTable="TENSPColumn" msprop:Generator_UserColumnName="TENSP" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DonGia" msprop:Generator_ColumnVarNameInTable="columnDonGia" msprop:Generator_ColumnPropNameInRow="DonGia" msprop:Generator_ColumnPropNameInTable="DonGiaColumn" msprop:Generator_UserColumnName="DonGia" type="xs:int" minOccurs="0" />
+              <xs:element name="TENDM" msprop:Generator_ColumnVarNameInTable="columnTENDM" msprop:Generator_ColumnPropNameInRow="TENDM" msprop:Generator_ColumnPropNameInTable="TENDMColumn" msprop:Generator_UserColumnName="TENDM" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MOTA" msprop:Generator_ColumnVarNameInTable="columnMOTA" msprop:Generator_ColumnPropNameInRow="MOTA" msprop:Generator_ColumnPropNameInTable="MOTAColumn" msprop:Generator_UserColumnName="MOTA" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SL" msprop:Generator_ColumnVarNameInTable="columnSL" msprop:Generator_ColumnPropNameInRow="SL" msprop:Generator_ColumnPropNameInTable="SLColumn" msprop:Generator_UserColumnName="SL" type="xs:int" minOccurs="0" />
+              <xs:element name="DVT" msprop:Generator_ColumnVarNameInTable="columnDVT" msprop:Generator_ColumnPropNameInRow="DVT" msprop:Generator_ColumnPropNameInTable="DVTColumn" msprop:Generator_UserColumnName="DVT" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tungay" msprop:Generator_ColumnVarNameInTable="columnTungay" msprop:Generator_ColumnPropNameInRow="Tungay" msprop:Generator_ColumnPropNameInTable="TungayColumn" msprop:Generator_UserColumnName="Tungay" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Denngay" msprop:Generator_ColumnVarNameInTable="columnDenngay" msprop:Generator_ColumnPropNameInRow="Denngay" msprop:Generator_ColumnPropNameInTable="DenngayColumn" msprop:Generator_UserColumnName="Denngay" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Thang" msprop:Generator_ColumnVarNameInTable="columnThang" msprop:Generator_ColumnPropNameInRow="Thang" msprop:Generator_ColumnPropNameInTable="ThangColumn" msprop:Generator_UserColumnName="Thang" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

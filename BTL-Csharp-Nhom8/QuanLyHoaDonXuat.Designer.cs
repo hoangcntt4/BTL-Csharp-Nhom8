@@ -184,7 +184,7 @@ namespace BTL_Csharp_Nhom8
             this.btn_refresh.Name = "btn_refresh";
             this.btn_refresh.Size = new System.Drawing.Size(220, 51);
             this.btn_refresh.TabIndex = 14;
-            this.btn_refresh.Text = "Refresh";
+            this.btn_refresh.Text = "Làm mới";
             this.btn_refresh.UseVisualStyleBackColor = true;
             this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
             // 

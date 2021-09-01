@@ -62,15 +62,15 @@ namespace BTL_Csharp_Nhom8
             this.lbl_maNV = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.dgv_hoaDon = new System.Windows.Forms.DataGridView();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.btn_thanhToan = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btn_huyPhieu = new System.Windows.Forms.Button();
             this.TENSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DVT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SOLUONGXUAT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.THANHTIEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_thanhToan = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_huyPhieu = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -392,7 +392,7 @@ namespace BTL_Csharp_Nhom8
             // 
             this.lbl_hoTen.AutoSize = true;
             this.lbl_hoTen.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbl_hoTen.Location = new System.Drawing.Point(105, 136);
+            this.lbl_hoTen.Location = new System.Drawing.Point(186, 136);
             this.lbl_hoTen.Name = "lbl_hoTen";
             this.lbl_hoTen.Size = new System.Drawing.Size(54, 19);
             this.lbl_hoTen.TabIndex = 7;
@@ -465,6 +465,41 @@ namespace BTL_Csharp_Nhom8
             this.dgv_hoaDon.TabIndex = 10;
             this.dgv_hoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_hoaDon_CellClick);
             // 
+            // TENSP
+            // 
+            this.TENSP.DataPropertyName = "TENSP";
+            this.TENSP.HeaderText = "Tên sản phẩm";
+            this.TENSP.MinimumWidth = 8;
+            this.TENSP.Name = "TENSP";
+            // 
+            // DVT
+            // 
+            this.DVT.DataPropertyName = "DVT";
+            this.DVT.HeaderText = "Đơn vị tính";
+            this.DVT.MinimumWidth = 6;
+            this.DVT.Name = "DVT";
+            // 
+            // GIA
+            // 
+            this.GIA.DataPropertyName = "GIA";
+            this.GIA.HeaderText = "Đơn giá (VNĐ)";
+            this.GIA.MinimumWidth = 8;
+            this.GIA.Name = "GIA";
+            // 
+            // SOLUONGXUAT
+            // 
+            this.SOLUONGXUAT.DataPropertyName = "SOLUONGXUAT";
+            this.SOLUONGXUAT.HeaderText = "Số lượng ";
+            this.SOLUONGXUAT.MinimumWidth = 8;
+            this.SOLUONGXUAT.Name = "SOLUONGXUAT";
+            // 
+            // THANHTIEN
+            // 
+            this.THANHTIEN.DataPropertyName = "THANHTIEN";
+            this.THANHTIEN.HeaderText = "Thành tiền (VNĐ)";
+            this.THANHTIEN.MinimumWidth = 8;
+            this.THANHTIEN.Name = "THANHTIEN";
+            // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 1;
@@ -520,41 +555,6 @@ namespace BTL_Csharp_Nhom8
             this.btn_huyPhieu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_huyPhieu.UseVisualStyleBackColor = false;
             this.btn_huyPhieu.Click += new System.EventHandler(this.btn_huyPhieu_Click);
-            // 
-            // TENSP
-            // 
-            this.TENSP.DataPropertyName = "TENSP";
-            this.TENSP.HeaderText = "Tên sản phẩm";
-            this.TENSP.MinimumWidth = 8;
-            this.TENSP.Name = "TENSP";
-            // 
-            // DVT
-            // 
-            this.DVT.DataPropertyName = "DVT";
-            this.DVT.HeaderText = "Đơn vị tính";
-            this.DVT.MinimumWidth = 6;
-            this.DVT.Name = "DVT";
-            // 
-            // GIA
-            // 
-            this.GIA.DataPropertyName = "GIA";
-            this.GIA.HeaderText = "Đơn giá (VNĐ)";
-            this.GIA.MinimumWidth = 8;
-            this.GIA.Name = "GIA";
-            // 
-            // SOLUONGXUAT
-            // 
-            this.SOLUONGXUAT.DataPropertyName = "SOLUONGXUAT";
-            this.SOLUONGXUAT.HeaderText = "Số lượng ";
-            this.SOLUONGXUAT.MinimumWidth = 8;
-            this.SOLUONGXUAT.Name = "SOLUONGXUAT";
-            // 
-            // THANHTIEN
-            // 
-            this.THANHTIEN.DataPropertyName = "THANHTIEN";
-            this.THANHTIEN.HeaderText = "Thành tiền (VNĐ)";
-            this.THANHTIEN.MinimumWidth = 8;
-            this.THANHTIEN.Name = "THANHTIEN";
             // 
             // POSBH
             // 

@@ -22,7 +22,7 @@ namespace BTL_Csharp_Nhom8
         DoiMatKhau doiMatKhau = new DoiMatKhau();
         QuanLyNhanSu quanLyNhanSu = new QuanLyNhanSu();
         QuanLyNhaCC quanLyNhaCC = new QuanLyNhaCC();
-        QuanLyKhachHang quanLyKhachHang = new QuanLyKhachHang();
+        QuanLyDanhMuc quanLyDanhMuc = new QuanLyDanhMuc();
         BaoCao baoCaoTheoNgay = new BaoCao();
         string maNV_current, matkhau;
 
@@ -151,13 +151,13 @@ namespace BTL_Csharp_Nhom8
         private void kháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.pnl_Container.Controls.Clear();
-            quanLyKhachHang.FormBorderStyle = FormBorderStyle.None;
-            quanLyKhachHang.TopLevel = false;
-            quanLyKhachHang.TopMost = true;
+            quanLyDanhMuc.FormBorderStyle = FormBorderStyle.None;
+            quanLyDanhMuc.TopLevel = false;
+            quanLyDanhMuc.TopMost = true;
             //frm_POS.AutoScroll = true;
-            quanLyKhachHang.Dock = DockStyle.Fill;
-            this.pnl_Container.Controls.Add(quanLyKhachHang);
-            quanLyKhachHang.Show();
+            quanLyDanhMuc.Dock = DockStyle.Fill;
+            this.pnl_Container.Controls.Add(quanLyDanhMuc);
+            quanLyDanhMuc.Show();
         }
 
         private void báoCáoToolStripMenuItem1_Click(object sender, EventArgs e)

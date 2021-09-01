@@ -29,6 +29,7 @@ namespace BTL_Csharp_Nhom8
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.btn_login = new System.Windows.Forms.Button();
@@ -39,9 +40,11 @@ namespace BTL_Csharp_Nhom8
             this.ptb_iconava = new System.Windows.Forms.PictureBox();
             this.lbl_login = new System.Windows.Forms.Label();
             this.ptb_title = new System.Windows.Forms.PictureBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_iconava)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_title)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -112,6 +115,7 @@ namespace BTL_Csharp_Nhom8
             this.txt_passWord.PasswordChar = '*';
             this.txt_passWord.Size = new System.Drawing.Size(163, 24);
             this.txt_passWord.TabIndex = 1;
+            this.txt_passWord.Validated += new System.EventHandler(this.txt_passWord_Validated);
             // 
             // txt_userName
             // 
@@ -120,6 +124,7 @@ namespace BTL_Csharp_Nhom8
             this.txt_userName.Name = "txt_userName";
             this.txt_userName.Size = new System.Drawing.Size(163, 24);
             this.txt_userName.TabIndex = 0;
+            this.txt_userName.Validated += new System.EventHandler(this.txt_userName_Validated);
             // 
             // ptb_iconava
             // 
@@ -153,6 +158,10 @@ namespace BTL_Csharp_Nhom8
             this.ptb_title.TabIndex = 1;
             this.ptb_title.TabStop = false;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // DangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -169,6 +178,7 @@ namespace BTL_Csharp_Nhom8
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_iconava)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_title)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -184,5 +194,6 @@ namespace BTL_Csharp_Nhom8
         private System.Windows.Forms.Label lbl_user;
         private System.Windows.Forms.Button btn_login;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

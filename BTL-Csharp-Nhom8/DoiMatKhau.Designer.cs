@@ -29,6 +29,7 @@ namespace BTL_Csharp_Nhom8
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_MKCu = new System.Windows.Forms.TextBox();
             this.txt_MKMoi = new System.Windows.Forms.TextBox();
@@ -37,69 +38,74 @@ namespace BTL_Csharp_Nhom8
             this.label3 = new System.Windows.Forms.Label();
             this.btn_ok = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(291, 99);
+            this.label1.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(259, 99);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 24);
+            this.label1.Size = new System.Drawing.Size(110, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mật khẩu cũ:";
             // 
             // txt_MKCu
             // 
-            this.txt_MKCu.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_MKCu.Location = new System.Drawing.Point(459, 96);
+            this.txt_MKCu.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txt_MKCu.Location = new System.Drawing.Point(408, 96);
             this.txt_MKCu.Name = "txt_MKCu";
-            this.txt_MKCu.Size = new System.Drawing.Size(275, 30);
+            this.txt_MKCu.Size = new System.Drawing.Size(245, 27);
             this.txt_MKCu.TabIndex = 1;
+            this.txt_MKCu.Validated += new System.EventHandler(this.txt_MKCu_Validated);
             // 
             // txt_MKMoi
             // 
-            this.txt_MKMoi.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_MKMoi.Location = new System.Drawing.Point(459, 150);
+            this.txt_MKMoi.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txt_MKMoi.Location = new System.Drawing.Point(408, 150);
             this.txt_MKMoi.Name = "txt_MKMoi";
-            this.txt_MKMoi.Size = new System.Drawing.Size(275, 30);
+            this.txt_MKMoi.Size = new System.Drawing.Size(245, 27);
             this.txt_MKMoi.TabIndex = 3;
+            this.txt_MKMoi.Validated += new System.EventHandler(this.txt_MKMoi_Validated);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(278, 153);
+            this.label2.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(247, 153);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(146, 24);
+            this.label2.Size = new System.Drawing.Size(121, 19);
             this.label2.TabIndex = 2;
             this.label2.Text = "Mật khẩu mới:";
             // 
             // txt_XacNhanMK
             // 
-            this.txt_XacNhanMK.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_XacNhanMK.Location = new System.Drawing.Point(459, 206);
+            this.txt_XacNhanMK.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txt_XacNhanMK.Location = new System.Drawing.Point(408, 206);
             this.txt_XacNhanMK.Name = "txt_XacNhanMK";
-            this.txt_XacNhanMK.Size = new System.Drawing.Size(275, 30);
+            this.txt_XacNhanMK.Size = new System.Drawing.Size(245, 27);
             this.txt_XacNhanMK.TabIndex = 5;
+            this.txt_XacNhanMK.Validated += new System.EventHandler(this.txt_XacNhanMK_Validated);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(184, 209);
+            this.label3.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(164, 209);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(240, 24);
+            this.label3.Size = new System.Drawing.Size(200, 19);
             this.label3.TabIndex = 4;
             this.label3.Text = "Xác nhận mật khẩu mới:";
             // 
             // btn_ok
             // 
-            this.btn_ok.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ok.Location = new System.Drawing.Point(459, 277);
+            this.btn_ok.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_ok.Location = new System.Drawing.Point(408, 277);
             this.btn_ok.Name = "btn_ok";
-            this.btn_ok.Size = new System.Drawing.Size(227, 51);
+            this.btn_ok.Size = new System.Drawing.Size(202, 51);
             this.btn_ok.TabIndex = 6;
             this.btn_ok.Text = "Xác nhận";
             this.btn_ok.UseVisualStyleBackColor = true;
@@ -117,22 +123,27 @@ namespace BTL_Csharp_Nhom8
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1868, 859);
+            this.groupBox1.Size = new System.Drawing.Size(1660, 859);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Đổi mật khẩu";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // DoiMatKhau
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1868, 859);
+            this.ClientSize = new System.Drawing.Size(1660, 859);
             this.Controls.Add(this.groupBox1);
             this.Name = "DoiMatKhau";
             this.Text = "DoiMatKhau";
             this.Load += new System.EventHandler(this.DoiMatKhau_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -147,5 +158,6 @@ namespace BTL_Csharp_Nhom8
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btn_ok;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

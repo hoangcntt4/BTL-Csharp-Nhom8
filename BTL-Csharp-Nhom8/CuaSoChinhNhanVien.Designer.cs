@@ -46,8 +46,8 @@ namespace BTL_Csharp_Nhom8
             this.tàiKhoảnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đổiMậtKhẩuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pnl_Container = new System.Windows.Forms.Panel();
             this.hướngDẫnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnl_Container = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -59,7 +59,7 @@ namespace BTL_Csharp_Nhom8
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 18F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.pnl_Container, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -68,7 +68,7 @@ namespace BTL_Csharp_Nhom8
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1898, 1024);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1687, 1024);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -83,7 +83,7 @@ namespace BTL_Csharp_Nhom8
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1892, 96);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1681, 96);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // panel1
@@ -92,16 +92,16 @@ namespace BTL_Csharp_Nhom8
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(183, 90);
+            this.panel1.Size = new System.Drawing.Size(162, 90);
             this.panel1.TabIndex = 0;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::BTL_Csharp_Nhom8.Properties.Resources.logokvo;
-            this.pictureBox1.Location = new System.Drawing.Point(35, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(31, 3);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(113, 85);
+            this.pictureBox1.Size = new System.Drawing.Size(100, 85);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -109,7 +109,6 @@ namespace BTL_Csharp_Nhom8
             // menuStrip2
             // 
             this.menuStrip2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menuStrip2.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip2.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pOSToolStripMenuItem,
@@ -121,9 +120,10 @@ namespace BTL_Csharp_Nhom8
             this.nCCToolStripMenuItem,
             this.tàiKhoảnToolStripMenuItem,
             this.hướngDẫnToolStripMenuItem});
-            this.menuStrip2.Location = new System.Drawing.Point(189, 0);
+            this.menuStrip2.Location = new System.Drawing.Point(168, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(1703, 96);
+            this.menuStrip2.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip2.Size = new System.Drawing.Size(1513, 96);
             this.menuStrip2.TabIndex = 1;
             this.menuStrip2.Text = "menuStrip1";
             // 
@@ -131,7 +131,7 @@ namespace BTL_Csharp_Nhom8
             // 
             this.pOSToolStripMenuItem.Image = global::BTL_Csharp_Nhom8.Properties.Resources.cashier;
             this.pOSToolStripMenuItem.Name = "pOSToolStripMenuItem";
-            this.pOSToolStripMenuItem.Size = new System.Drawing.Size(86, 92);
+            this.pOSToolStripMenuItem.Size = new System.Drawing.Size(74, 92);
             this.pOSToolStripMenuItem.Text = "POS";
             this.pOSToolStripMenuItem.Click += new System.EventHandler(this.pOSToolStripMenuItem_Click);
             // 
@@ -139,7 +139,7 @@ namespace BTL_Csharp_Nhom8
             // 
             this.khoHàngToolStripMenuItem.Image = global::BTL_Csharp_Nhom8.Properties.Resources.warehouse;
             this.khoHàngToolStripMenuItem.Name = "khoHàngToolStripMenuItem";
-            this.khoHàngToolStripMenuItem.Size = new System.Drawing.Size(128, 92);
+            this.khoHàngToolStripMenuItem.Size = new System.Drawing.Size(110, 92);
             this.khoHàngToolStripMenuItem.Text = "Kho hàng";
             this.khoHàngToolStripMenuItem.Click += new System.EventHandler(this.khoHàngToolStripMenuItem_Click);
             // 
@@ -150,20 +150,20 @@ namespace BTL_Csharp_Nhom8
             this.tạoMớiĐơnNhậpToolStripMenuItem});
             this.nhậpToolStripMenuItem.Image = global::BTL_Csharp_Nhom8.Properties.Resources.import;
             this.nhậpToolStripMenuItem.Name = "nhậpToolStripMenuItem";
-            this.nhậpToolStripMenuItem.Size = new System.Drawing.Size(140, 92);
+            this.nhậpToolStripMenuItem.Size = new System.Drawing.Size(120, 92);
             this.nhậpToolStripMenuItem.Text = "Nhập hàng";
             // 
             // quảnLýĐơnNhậpToolStripMenuItem
             // 
             this.quảnLýĐơnNhậpToolStripMenuItem.Name = "quảnLýĐơnNhậpToolStripMenuItem";
-            this.quảnLýĐơnNhậpToolStripMenuItem.Size = new System.Drawing.Size(261, 34);
+            this.quảnLýĐơnNhậpToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
             this.quảnLýĐơnNhậpToolStripMenuItem.Text = "Quản lý đơn nhập";
             this.quảnLýĐơnNhậpToolStripMenuItem.Click += new System.EventHandler(this.quảnLýĐơnNhậpToolStripMenuItem_Click);
             // 
             // tạoMớiĐơnNhậpToolStripMenuItem
             // 
             this.tạoMớiĐơnNhậpToolStripMenuItem.Name = "tạoMớiĐơnNhậpToolStripMenuItem";
-            this.tạoMớiĐơnNhậpToolStripMenuItem.Size = new System.Drawing.Size(261, 34);
+            this.tạoMớiĐơnNhậpToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
             this.tạoMớiĐơnNhậpToolStripMenuItem.Text = "Tạo mới đơn nhập";
             this.tạoMớiĐơnNhậpToolStripMenuItem.Click += new System.EventHandler(this.tạoMớiĐơnNhậpToolStripMenuItem_Click);
             // 
@@ -171,7 +171,7 @@ namespace BTL_Csharp_Nhom8
             // 
             this.xuấtHàngToolStripMenuItem.Image = global::BTL_Csharp_Nhom8.Properties.Resources.market;
             this.xuấtHàngToolStripMenuItem.Name = "xuấtHàngToolStripMenuItem";
-            this.xuấtHàngToolStripMenuItem.Size = new System.Drawing.Size(133, 92);
+            this.xuấtHàngToolStripMenuItem.Size = new System.Drawing.Size(114, 92);
             this.xuấtHàngToolStripMenuItem.Text = "Xuất hàng";
             this.xuấtHàngToolStripMenuItem.Click += new System.EventHandler(this.xuấtHàngToolStripMenuItem_Click);
             // 
@@ -179,7 +179,7 @@ namespace BTL_Csharp_Nhom8
             // 
             this.báoCáoToolStripMenuItem.Image = global::BTL_Csharp_Nhom8.Properties.Resources.report;
             this.báoCáoToolStripMenuItem.Name = "báoCáoToolStripMenuItem";
-            this.báoCáoToolStripMenuItem.Size = new System.Drawing.Size(115, 92);
+            this.báoCáoToolStripMenuItem.Size = new System.Drawing.Size(101, 92);
             this.báoCáoToolStripMenuItem.Text = "Báo cáo";
             this.báoCáoToolStripMenuItem.Click += new System.EventHandler(this.báoCáoToolStripMenuItem_Click);
             // 
@@ -187,15 +187,15 @@ namespace BTL_Csharp_Nhom8
             // 
             this.khachHangToolStripMenuItem1.Image = global::BTL_Csharp_Nhom8.Properties.Resources.customer;
             this.khachHangToolStripMenuItem1.Name = "khachHangToolStripMenuItem1";
-            this.khachHangToolStripMenuItem1.Size = new System.Drawing.Size(144, 92);
-            this.khachHangToolStripMenuItem1.Text = "Khách hàng";
+            this.khachHangToolStripMenuItem1.Size = new System.Drawing.Size(110, 92);
+            this.khachHangToolStripMenuItem1.Text = "DanhMuc";
             this.khachHangToolStripMenuItem1.Click += new System.EventHandler(this.khachHangToolStripMenuItem1_Click);
             // 
             // nCCToolStripMenuItem
             // 
             this.nCCToolStripMenuItem.Image = global::BTL_Csharp_Nhom8.Properties.Resources.inventory;
             this.nCCToolStripMenuItem.Name = "nCCToolStripMenuItem";
-            this.nCCToolStripMenuItem.Size = new System.Drawing.Size(87, 92);
+            this.nCCToolStripMenuItem.Size = new System.Drawing.Size(76, 92);
             this.nCCToolStripMenuItem.Text = "NCC";
             this.nCCToolStripMenuItem.Click += new System.EventHandler(this.nCCToolStripMenuItem_Click);
             // 
@@ -206,43 +206,43 @@ namespace BTL_Csharp_Nhom8
             this.đăngXuấtToolStripMenuItem});
             this.tàiKhoảnToolStripMenuItem.Image = global::BTL_Csharp_Nhom8.Properties.Resources.settings;
             this.tàiKhoảnToolStripMenuItem.Name = "tàiKhoảnToolStripMenuItem";
-            this.tàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(126, 92);
+            this.tàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(109, 92);
             this.tàiKhoảnToolStripMenuItem.Text = "Tài khoản";
             // 
             // đổiMậtKhẩuToolStripMenuItem
             // 
             this.đổiMậtKhẩuToolStripMenuItem.Name = "đổiMậtKhẩuToolStripMenuItem";
-            this.đổiMậtKhẩuToolStripMenuItem.Size = new System.Drawing.Size(221, 34);
+            this.đổiMậtKhẩuToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.đổiMậtKhẩuToolStripMenuItem.Text = "Đổi mật khẩu";
             this.đổiMậtKhẩuToolStripMenuItem.Click += new System.EventHandler(this.đổiMậtKhẩuToolStripMenuItem_Click);
             // 
             // đăngXuấtToolStripMenuItem
             // 
             this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(221, 34);
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
             this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
+            // 
+            // hướngDẫnToolStripMenuItem
+            // 
+            this.hướngDẫnToolStripMenuItem.Image = global::BTL_Csharp_Nhom8.Properties.Resources.guide;
+            this.hướngDẫnToolStripMenuItem.Name = "hướngDẫnToolStripMenuItem";
+            this.hướngDẫnToolStripMenuItem.Size = new System.Drawing.Size(122, 92);
+            this.hướngDẫnToolStripMenuItem.Text = "Hướng dẫn";
             // 
             // pnl_Container
             // 
             this.pnl_Container.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_Container.Location = new System.Drawing.Point(3, 105);
             this.pnl_Container.Name = "pnl_Container";
-            this.pnl_Container.Size = new System.Drawing.Size(1892, 916);
+            this.pnl_Container.Size = new System.Drawing.Size(1681, 916);
             this.pnl_Container.TabIndex = 1;
-            // 
-            // hướngDẫnToolStripMenuItem
-            // 
-            this.hướngDẫnToolStripMenuItem.Image = global::BTL_Csharp_Nhom8.Properties.Resources.guide;
-            this.hướngDẫnToolStripMenuItem.Name = "hướngDẫnToolStripMenuItem";
-            this.hướngDẫnToolStripMenuItem.Size = new System.Drawing.Size(143, 92);
-            this.hướngDẫnToolStripMenuItem.Text = "Hướng dẫn";
             // 
             // CuaSoChinhNhanVien
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1898, 1024);
+            this.ClientSize = new System.Drawing.Size(1687, 1024);
             this.Controls.Add(this.tableLayoutPanel1);
             this.MainMenuStrip = this.menuStrip2;
             this.Name = "CuaSoChinhNhanVien";
